@@ -7,7 +7,7 @@ const {
   getAllMessages,
   getConversation,
   searchMessages,
-} = require('./functions');
+} = require('./modulo/fuctions.js');
 
 const app = express();
 app.use(cors());
