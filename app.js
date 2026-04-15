@@ -102,7 +102,7 @@ app.get('/v1/whatsapp/users/:id/search', (req, res) => {
   res.json(result);
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
