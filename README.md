@@ -1,17 +1,20 @@
 # 📱 API WhatsApp
 
-API para envio de mensagens via WhatsApp utilizando **Node.js** e **Express**.
+API REST para envio de mensagens via WhatsApp utilizando Node.js.
+
+---
 
 ## 🚀 Sobre o Projeto
 
-Esta API permite enviar mensagens de forma automatizada através do WhatsApp, possibilitando integração com diversos sistemas, como:
+Esta API foi desenvolvida para permitir o envio automatizado de mensagens pelo WhatsApp através de requisições HTTP.
 
-- CRM
-- ERP
+Ideal para integração com:
+
 - Sistemas de atendimento
-- Bots personalizados
-
-A comunicação é feita por meio de requisições HTTP simples.
+- CRMs
+- ERPs
+- Bots automatizados
+- Notificações em tempo real
 
 ---
 
@@ -27,50 +30,177 @@ A comunicação é feita por meio de requisições HTTP simples.
 
 ### 🔧 Pré-requisitos
 
-- Node.js instalado
+- Node.js (versão 14 ou superior)
 - NPM ou Yarn
 
-### 📥 Clonando o repositório
+### 📥 Clonar o repositório
 
 ```bash
 git clone https://github.com/pedsousa06-ai/Api-Whatsapp.git
 cd Api-Whatsapp
+```
 
-📚 Instalando dependências
+### 📚 Instalar dependências
+
+```bash
 npm install
-
-▶️ Executando o Projeto
-node index.js
-
-Após iniciar, o sistema pode solicitar autenticação (ex: QR Code), dependendo da implementação utilizada.
-
-📡 Como Usar a API
-📤 Enviar mensagem
-
-Faça uma requisição HTTP:
-
-http://SEU_IP:PORTA/api?celular=NUMERO&mensagem=MENSAGEM
-
-🔹 Parâmetros
-Parâmetro	Descrição
-celular	Número com DDD
-mensagem	Texto da mensagem
-
-✅ Exemplo
-http://localhost:3000/api?celular=11999999999&mensagem=Olá mundo
-
-📁 Estrutura do Projeto
-📦 Api-Whatsapp
- ┣ 📜 index.js
- ┣ 📜 package.json
- ┗ 📜 demais arquivos do projeto
-
-
-📄 Licença
-
-Este projeto está sob a licença MIT.
-
+```
 
 ---
 
-Se quiser depois eu adapto ele **100% fiel ao seu código (endpoints reais, porta, lib que você usou, etc.)** — aí fica nível profissional mesmo.
+## ▶️ Executando o Projeto
+
+```bash
+node index.js
+```
+
+Ou com nodemon:
+
+```bash
+npx nodemon index.js
+```
+
+---
+
+## 🔐 Autenticação
+
+Ao iniciar a aplicação, pode ser necessário autenticar o WhatsApp:
+
+- Um QR Code pode ser exibido no terminal
+- Escaneie com seu WhatsApp
+- A sessão pode ser salva automaticamente
+
+---
+
+## 🌐 Configuração
+
+Por padrão, a API roda em:
+
+```
+http://localhost:3000
+```
+
+Caso utilize variável de ambiente:
+
+```
+PORT=3000
+```
+
+---
+
+## 📡 Endpoints da API
+
+### 📤 Enviar mensagem
+
+**GET /api**
+
+#### 🔹 Parâmetros
+
+| Parâmetro | Tipo   | Obrigatório | Descrição |
+|----------|--------|------------|----------|
+| celular  | string | ✅         | Número com DDD |
+| mensagem | string | ✅         | Texto da mensagem |
+
+#### ✅ Exemplo de requisição
+
+```
+http://localhost:3000/api?celular=11999999999&mensagem=Olá mundo
+```
+
+#### ✅ Exemplo com curl
+
+```bash
+curl "http://localhost:3000/api?celular=11999999999&mensagem=Olá mundo"
+```
+
+---
+
+## 📥 Respostas da API
+
+### ✅ Sucesso
+
+```json
+{
+  "status": "sucesso",
+  "mensagem": "Mensagem enviada com sucesso"
+}
+```
+
+### ❌ Erro
+
+```json
+{
+  "status": "erro",
+  "mensagem": "Falha ao enviar mensagem"
+}
+```
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+Api-Whatsapp/
+│
+├── index.js
+├── package.json
+├── node_modules/
+└── outros arquivos
+```
+
+---
+
+## ⚠️ Avisos Importantes
+
+- Este projeto não utiliza a API oficial do WhatsApp
+- Pode haver risco de bloqueio do número
+- Evite:
+  - Spam
+  - Disparos em massa
+  - Uso abusivo
+
+---
+
+## 🛠️ Melhorias Futuras
+
+- Autenticação via API Key
+- Envio de imagens e arquivos
+- Webhook para mensagens recebidas
+- Logs estruturados
+- Painel administrativo
+- Deploy com Docker
+
+---
+
+## 🤝 Contribuição
+
+1. Fork o projeto  
+2. Crie uma branch  
+```bash
+git checkout -b minha-feature
+```
+
+3. Commit  
+```bash
+git commit -m "feat: minha feature"
+```
+
+4. Push  
+```bash
+git push origin minha-feature
+```
+
+5. Abra um Pull Request  
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+
+---
+
+## 👨‍💻 Autor
+
+Pedro Sousa  
+https://github.com/pedsousa06-ai
